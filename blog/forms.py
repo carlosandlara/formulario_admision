@@ -29,9 +29,9 @@ class Form(forms.ModelForm):
             'email': 'Correo',
             'colegio': 'Colegio',
             'ciudad': 'Ciudad',
-            'carrera_post_1': 'Primera Carrera',
-            'carrera_post_2': 'Segunda Carrera',
-            'carrera_post_3': 'Tercera Carrera',
+            'carrera_post_1': 'Opción 1',
+            'carrera_post_2': 'Opción 2',
+            'carrera_post_3': 'Opción 3',
         }
         widgets = {
             'nombres': forms.TextInput(attrs={'class': 'form-control'}),

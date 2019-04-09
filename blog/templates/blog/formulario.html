@@ -1,11 +1,46 @@
 {% extends 'blog/base.html' %}
+{% load crispy_forms_tags %}
 
 {% block content %}
     <br>
-    <h2>Ingresa tus datos</h2>
-    <br>
-    <form method="POST" class="post-form">{% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="save btn btn-default">Enviar</button>
+    <div class="ingresa">
+    <h3>Ingresa tus datos</h3>
+    </div>
+    <div class="formulario">
+    <form method="POST" class="post-form">
+        {% csrf_token %}
+        <div class="form-group">
+        <div class="col-10">
+        {{ form.nombres|as_crispy_field }}
+        </div>
+        <div class="col-10">
+        {{ form.apellidos|as_crispy_field }}
+        </div>
+        <div class="row">
+        <div class="column-offset-3">+569</div>
+        <div class="column-offset-4">{{ form.nrofono|as_crispy_field }}</div>
+        </div>
+        <div class="col-10">
+        {{ form.email|as_crispy_field }}
+        </div>
+        <div class="col-10">
+        {{ form.ciudad|as_crispy_field }}
+        </div>
+        <div class="col-10">
+        {{ form.colegio|as_crispy_field }}
+        </div>
+            <h4>Carreras de Interés</h4>
+        <div class="col-10">
+        {{ form.carrera_post_1|as_crispy_field }}
+        </div>
+        <div class="col-10">
+        {{ form.carrera_post_2|as_crispy_field }}
+        </div>
+        <div class="col-10 tercCarr">
+        {{ form.carrera_post_3|as_crispy_field }}
+        </div>
+            <button type="submit" class="save btn btn-default">Enviar</button>
+        </div>
     </form>
+    </div>
 {% endblock %}
