@@ -10,39 +10,39 @@
     {% csrf_token %}
     <div class="form-group">
         <div class="col-xs-1 col-sm-12 col-md-10 col-lg-10">
-            {{ form.rut}}
+            {{ form.rut|as_crispy_field }}
         </div>
         <div class="col-xs-1 col-sm-12 col-md-10 col-lg-10">
-            {{ form.nombres}}
+            {{ form.nombres|as_crispy_field }}
         </div>
         <div class="col-xs-1 col-sm-12 col-md-10 col-lg-10">
-            {{ form.apellidos}}
+            {{ form.apellidos|as_crispy_field }}
         </div>
         <div class="col-xs-1 col-sm-12 col-md-10">
-            {{ form.nrofono}}
+            {{ form.nrofono|as_crispy_field }}
         </div>
         <div class="col-xs-1 col-sm-12 col-md-10 col-lg-10">
-            {{ form.email}}
+            {{ form.email|as_crispy_field }}
         </div>
         <div class="col-xs-1 col-sm-12 col-md-10 col-lg-10">
-            {{ form.ciudad}}
+            {{ form.ciudad|as_crispy_field }}
         </div>
         <div class="col-xs-1 col-sm-12 col-md-10 col-lg-10">
-            {{ form.colegio}}
+            {{ form.colegio|as_crispy_field }}
         </div>
         <div id="aniopostulante" class="col-xs-1 col-sm-12 col-md-10 col-lg-10">
-            {{ form.aniopost}}
+            {{ form.aniopost|as_crispy_field }}
         </div>
         <!-- Comienza escondido el div que contiene al año de egreso -->
         <div id="anioegresopostdiv_id" class="col-xs-1 col-sm-12 col-md-10 col-lg-10" style="display: none;">
-            {{ form.anioegreso}}
+            {{ form.anioegreso|as_crispy_field }}
         </div>
         <h4>Carreras de Interés</h4>
         <div class="col-xs-1 col-sm-12 col-md-10 col-lg-10">
-            {{ form.carrera_post_1}}
+            {{ form.carrera_post_1|as_crispy_field }}
         </div>
         <div class="col-xs-1 col-sm-12 col-md-10 col-lg-10">
-            {{ form.carrera_post_2}}
+            {{ form.carrera_post_2|as_crispy_field }}
         </div>
         <button type="submit" class="save btn btn-default">Enviar</button>
     </div>
