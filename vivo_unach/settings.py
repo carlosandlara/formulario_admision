@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'blog',
     'crispy_forms',
+    'phonenumber_field',
 ]
 
 MIDDLEWARE = [
@@ -122,3 +123,4 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+PHONENUMBER_DEFAULT_REGION = 'ES'

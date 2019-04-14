@@ -4,43 +4,74 @@
 {% block content %}
     <br>
     <div class="ingresa">
-    <h3>Ingresa tus datos</h3>
+        <h3>Ingresa tus datos</h3>
     </div>
-    <div class="formulario">
     <form method="POST" class="post-form">
-        {% csrf_token %}
-        <div class="form-group">
-        <div class="col-10">
-        {{ form.nombres|as_crispy_field }}
+    {% csrf_token %}
+    <div class="form-group">
+        <div class="col-xs-1 col-sm-12 col-md-10 col-lg-10">
+            {{ form.rut|as_crispy_field }}
         </div>
-        <div class="col-10">
-        {{ form.apellidos|as_crispy_field }}
+        <div class="col-xs-1 col-sm-12 col-md-10 col-lg-10">
+            {{ form.nombres|as_crispy_field }}
         </div>
-        <div class="row">
-        <div class="column-offset-3">+569</div>
-        <div class="column-offset-4">{{ form.nrofono|as_crispy_field }}</div>
+        <div class="col-xs-1 col-sm-12 col-md-10 col-lg-10">
+            {{ form.apellidos|as_crispy_field }}
         </div>
-        <div class="col-10">
-        {{ form.email|as_crispy_field }}
+        <div class="col-xs-1 col-sm-12 col-md-10">
+            {{ form.nrofono|as_crispy_field }}
         </div>
-        <div class="col-10">
-        {{ form.ciudad|as_crispy_field }}
+        <div class="col-xs-1 col-sm-12 col-md-10 col-lg-10">
+            {{ form.email|as_crispy_field }}
         </div>
-        <div class="col-10">
-        {{ form.colegio|as_crispy_field }}
+        <div class="col-xs-1 col-sm-12 col-md-10 col-lg-10">
+            {{ form.ciudad|as_crispy_field }}
         </div>
-            <h4>Carreras de Interés</h4>
-        <div class="col-10">
-        {{ form.carrera_post_1|as_crispy_field }}
+        <div class="col-xs-1 col-sm-12 col-md-10 col-lg-10">
+            {{ form.colegio|as_crispy_field }}
         </div>
-        <div class="col-10">
-        {{ form.carrera_post_2|as_crispy_field }}
+        <div id="aniopostulante" class="col-xs-1 col-sm-12 col-md-10 col-lg-10">
+            {{ form.aniopost|as_crispy_field }}
         </div>
-        <div class="col-10 tercCarr">
-        {{ form.carrera_post_3|as_crispy_field }}
+        <!-- Comienza escondido el div que contiene al año de egreso -->
+        <div id="anioegresopostdiv_id" class="col-xs-1 col-sm-12 col-md-10 col-lg-10" style="display: none;">
+            {{ form.anioegreso|as_crispy_field }}
         </div>
-            <button type="submit" class="save btn btn-default">Enviar</button>
+        <h4>Carreras de Interés</h4>
+        <div class="col-xs-1 col-sm-12 col-md-10 col-lg-10">
+            {{ form.carrera_post_1|as_crispy_field }}
         </div>
-    </form>
+        <div class="col-xs-1 col-sm-12 col-md-10 col-lg-10">
+            {{ form.carrera_post_2|as_crispy_field }}
+        </div>
+        <button type="submit" class="save btn btn-default">Enviar</button>
     </div>
+    <br>
+{% endblock %}
+
+{% block scripts %}
+<script type="text/javascript">
+
+    const ID_SELECTOR_ANIOPOST = "#id_aniopost";
+    const ID_DIV_ANIOEGRESO = "#anioegresopostdiv_id";
+    const OPTION_VALUE_COMPARE = "OTRO"; // Igual sería bueno darle un nombre más representativo a esta opción
+
+    $(document).ready(function() {
+        /* ¿Cual es el campo selector?
+        es aniopostulante
+        El #aniopostulante es el identificador del div que encapsula al campo de entrada selector que tiene
+        id #id_aniopost
+        */
+
+        // Escuchando evento change en selector de aniopost
+        $(document).on("change", ID_SELECTOR_ANIOPOST, function (evt) {
+            let optionValue = $(this).val();
+            if(optionValue === OPTION_VALUE_COMPARE){
+                $(ID_DIV_ANIOEGRESO).show();
+            }else{
+                $(ID_DIV_ANIOEGRESO).hide();
+            }
+        });
+    });
+</script>
 {% endblock %}

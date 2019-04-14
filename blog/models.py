@@ -1,15 +1,14 @@
 from django.db import models
 from django.utils import timezone
-
+from phonenumber_field.modelfields import PhoneNumberField
+from django.core.validators import MaxValueValidator, MinValueValidator
 
 class Post(models.Model):
     author = models.ForeignKey('auth.User', on_delete=models.CASCADE)
     title = models.CharField(max_length=200)
     text = models.TextField()
-    created_date = models.DateTimeField(
-        default=timezone.now)
-    published_date = models.DateTimeField(
-        blank=True, null=True)
+    created_date = models.DateTimeField(default=timezone.now)
+    published_date = models.DateTimeField(blank=True, null=True)
 
     def publish(self):
         self.published_date = timezone.now()
@@ -20,9 +19,10 @@ class Post(models.Model):
 
 
 class Formulario(models.Model):
+    rut = models.CharField(max_length=10, help_text="Tu RUT sin puntos y con guión")
     nombres = models.CharField(max_length=50)
     apellidos = models.CharField(max_length=50)
-    nrofono = models.IntegerField()
+    nrofono = PhoneNumberField(help_text="Los 8 dígitos luego del +569")
     email = models.EmailField()
     colegio = models.CharField(max_length=20)
     ARI = 'Arica'
@@ -34,12 +34,34 @@ class Formulario(models.Model):
     CIUDAD_CHOICES = (
         (ARI, 'Arica'),
         (IQQ, 'Iquique'),
-        (CHILL, 'Chillan'),
+        (CHILL, 'Chillán'),
         (SANT, 'Santiago'),
-        (CONCE, 'Concepcion'),
+        (CONCE, 'Concepción'),
         (OTRA, 'Otra ciudad'),
     )
-    ciudad = models.CharField(max_length=20, choices=CIUDAD_CHOICES, blank=True)
+    ciudad = models.CharField(max_length=20, choices=CIUDAD_CHOICES)
+    PRIMERO = 'PRIMERO'
+    SEGUNDO = 'SEGUNDO'
+    TERCERO = 'TERCERO'
+    CUARTO = 'CUARTO'
+    OTRO = 'OTRO'
+    ANIO_POSTULANTE_CHOICES = (
+        (PRIMERO, '1° medio'),
+        (SEGUNDO, '2° medio'),
+        (TERCERO, '3° medio'),
+        (CUARTO, '4° medio'),
+        (OTRO, 'Ya egresé'),
+    )
+    """anioegreso = models.SmallIntegerField(
+        default=2015,
+        blank=True,
+        validators=[
+            MinValueValidator(2000),
+            MaxValueValidator(3000)
+    ]
+    )"""
+    anioegreso = models.CharField(max_length=4, blank=True)
+    aniopost = models.CharField(max_length=15, choices=ANIO_POSTULANTE_CHOICES)
     AGRONOMIA = 'AGRO'
     CONTADOR_AUDITOR = 'CON_AUD'
     ED_PARVULARIA = 'ED_PARV'
@@ -65,31 +87,32 @@ class Formulario(models.Model):
     TNS_ENFERMERIA = 'TNS_ENF'
     TRABAJO_SOCIAL = 'TRAB_SOC'
     CARRERAPOST_CHOICES = (
-        (AGRONOMIA, 'Agronomia'),
+        (AGRONOMIA, 'Agronomía'),
         (CONTADOR_AUDITOR, 'Contador Auditor'),
-        (ED_PARVULARIA, 'Educacion Parvularia'),
-        (ENFERMERIA, 'Enfermeria'),
-        (ING_CIVIL_INFORMATICA, 'Ing. Civil en Informatica'),
-        (ING_INFORMATICA, 'Ing. Informatica'),
-        (ING_COMERCIAL, 'Ing. Comercial'),
-        (ING_ELECTRONICA, 'Ing. en Electronica y Telecomunicaciones'),
-        (ING_CIVIL_INDUSTRIAL, 'Ingenieria Civil Industrial'),
-        (NUTRICION, 'Nutricion y Dietetica'),
+        (ED_PARVULARIA, 'Educación Parvularia'),
+        (ENFERMERIA, 'Enfermería'),
+        (ING_COMERCIAL, 'Ingeniería Comercial'),
+        (ING_INFORMATICA, 'Ingeniería Informática'),
+        (ING_ELECTRONICA, 'Ingeniería en Electrónica y Telecomunicaciones'),
+        (ING_CIVIL_INDUSTRIAL, 'Ingeniería Civil Industrial'),
+        (ING_CIVIL_INFORMATICA, 'Ingeniería Civil Informática'),
+        (NUTRICION, 'Nutrición y Dietética'),
         (OBSTETRICIA, 'Obstetricia y Puericultura'),
-        (PED_BIO, 'Ped. en Biologia'),
-        (PED_ED_DIFERENCIAL, 'Ped. en Educ. Diferencial m/DEA'),
-        (PED_ED_FISICA, 'Ped. en Educacion Fisica'),
-        (PED_ED_GEN_BASICA, 'Ped. en Educacion General Basica'),
-        (PED_HISTORIA, 'Ped. en Historia y Geografia'),
-        (PED_INGLES, 'Ped. en Ingles'),
-        (PED_LENGUAJE, 'Ped. en Lengua Castellana y Comunicacion'),
-        (PED_MATEMATICA, 'Ped. en Matematica y Computacion'),
-        (PED_MUSICA, 'Ped. en Musica m/ Educacion Extraescolar'),
-        (PSICOLOGIA, 'Psicologia'),
-        (TEOLOGIA, 'Teologia'),
-        (TNS_ENFERMERIA, 'TNS en Enfermeria'),
+        (PED_BIO, 'Pedagogía en Biología'),
+        (PED_ED_DIFERENCIAL, 'Pedagogía en Educación Diferencial'),
+        (PED_ED_FISICA, 'Pedagogía en Educación Física'),
+        (PED_ED_GEN_BASICA, 'Pedagogía en Educación General Básica'),
+        (PED_HISTORIA, 'Pedagogía en Historia y Geografia'),
+        (PED_INGLES, 'Pedagogía en Inglés'),
+        (PED_LENGUAJE, 'Pedagogía en Lengua Castellana y Comunicacion'),
+        (PED_MATEMATICA, 'Pedagogía en Matemática y Computacion'),
+        (PED_MUSICA, 'Pedagogía en Música'),
+        (PSICOLOGIA, 'Psicología'),
+        (TEOLOGIA, 'Teología'),
+        (TNS_ENFERMERIA, 'TENS en Enfermería'),
         (TRABAJO_SOCIAL, 'Trabajo Social'),
     )
-    carrera_post_1 = models.CharField(max_length=50, choices=CARRERAPOST_CHOICES, blank=True)
+
+    carrera_post_1 = models.CharField(max_length=50, choices=CARRERAPOST_CHOICES)
     carrera_post_2 = models.CharField(max_length=50, choices=CARRERAPOST_CHOICES, blank=True)
     carrera_post_3 = models.CharField(max_length=50, choices=CARRERAPOST_CHOICES, blank=True)
