@@ -57,7 +57,7 @@ ROOT_URLCONF = 'vivo_unach.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['/blog/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

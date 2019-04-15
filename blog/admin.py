@@ -6,7 +6,7 @@ admin.site.register(Post)
 
 class FormularioAdmin(admin.ModelAdmin):
     list_filter = ('ciudad','carrera_post_1',)
-    list_display = ('rut', 'nombres', 'ciudad', 'colegio',)
+    list_display = ('rut', 'nombres', 'apellidos', 'ciudad', 'colegio', 'colegioadv', )
 
 
 admin.site.register(Formulario, FormularioAdmin)
