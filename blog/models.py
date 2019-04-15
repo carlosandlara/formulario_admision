@@ -22,9 +22,10 @@ class Formulario(models.Model):
     rut = models.CharField(max_length=10, help_text="Tu RUT sin puntos y con guión")
     nombres = models.CharField(max_length=50)
     apellidos = models.CharField(max_length=50)
-    nrofono = PhoneNumberField(help_text="Los 8 dígitos luego del +569")
+    nrofono = PhoneNumberField(help_text="Los 8 dígitos luego del +56", default='9')
     email = models.EmailField()
-    colegio = models.CharField(max_length=20)
+
+    """Ciudades"""
     ARI = 'Arica'
     IQQ = 'Iquique'
     CHILL = 'Chillan'
@@ -32,6 +33,7 @@ class Formulario(models.Model):
     CONCE = 'Concepcion'
     OTRA = 'Otra'
     CIUDAD_CHOICES = (
+        ('', 'Escoge una ciudad...'),
         (ARI, 'Arica'),
         (IQQ, 'Iquique'),
         (CHILL, 'Chillán'),
@@ -46,12 +48,15 @@ class Formulario(models.Model):
     CUARTO = 'CUARTO'
     OTRO = 'OTRO'
     ANIO_POSTULANTE_CHOICES = (
+        ('', 'Escoge un curso...'),
         (PRIMERO, '1° medio'),
         (SEGUNDO, '2° medio'),
         (TERCERO, '3° medio'),
         (CUARTO, '4° medio'),
         (OTRO, 'Ya egresé'),
     )
+    anioegreso = models.CharField(max_length=4, blank=True)
+    aniopost = models.CharField(max_length=15, choices=ANIO_POSTULANTE_CHOICES)
     """anioegreso = models.SmallIntegerField(
         default=2015,
         blank=True,
@@ -60,8 +65,183 @@ class Formulario(models.Model):
             MaxValueValidator(3000)
     ]
     )"""
-    anioegreso = models.CharField(max_length=4, blank=True)
-    aniopost = models.CharField(max_length=15, choices=ANIO_POSTULANTE_CHOICES)
+    """ColegiosAdventistas"""
+    COADAR = 'Arica'
+    CAI = 'Iquique'
+    CADECAL = 'Calama'
+    COADAN = 'Antofagasta'
+    CADECOP = 'Copiapó'
+    CADELSE = 'La Serena'
+    CADEQUI = 'Quilpué'
+    CABU = 'Buenaventura'
+    CAP = 'Porvenir'
+    COALC = 'La Cisterna'
+    CALC = 'Las Condes'
+    CASAN = 'Santiago Norte'
+    CASS = 'Santiago Sur'
+    CASAP = 'Santiago Poniente'
+    CAM = 'Molina'
+    COADET = 'Talca'
+    CACH = 'Chillan'
+    CAL = 'Lota'
+    CATCE = 'Talcahuano Centro'
+    CADET = 'Talcahuano'
+    CADEC = 'Concepción'
+    CEALA = 'Los Angeles'
+    COADVAN = 'Angol'
+    COADTE = 'Temuco'
+    COADPI = 'Pitrufquén'
+    CADVI = 'Villarrica'
+    CADVA = 'Valdivia'
+    COADPA = 'Punta Arenas'
+    COLEGIOS_ADV_CHOICES = (
+        ('', 'Escoge un colegio...'),
+        (COADAR, 'Colegio Adventista de Arica'),
+        (CAI, 'Colegio Adventista de Iquique'),
+        (CADECAL, 'Colegio Adventista de Calama'),
+        (COADAN, 'Colegio Adventista de Antofagasta'),
+        (CADECOP, 'Colegio Adventista de Copiapó'),
+        (CADELSE, 'Colegio Adventista de La Serena'),
+        (CADEQUI, 'Colegio Adventista de Quilpué'),
+        (CABU, 'Colegio Adventista de Buenaventura'),
+        (CAP, 'Colegio Adventista Porvenir'),
+        (COALC, 'Colegio Adventista La Cisterna'),
+        (CALC, 'Colegio Adventista Las Condes'),
+        (CASAN, 'Colegio Adventista Santiago Norte'),
+        (CASS, 'Colegio Adventista Santiago Sur'),
+        (CASAP, 'Colegio Adventista Santiago Poniente'),
+        (CAM, 'Colegio Adventista de Molina'),
+        (COADET, 'Colegio Adventista de Talca'),
+        (CACH, 'Colegio Adventista de Chile'),
+        (CAL, 'Colegio Adventista de Lota'),
+        (CATCE, 'Colegio Adventista Talcahuano Centro'),
+        (CADET, 'Colegio Adventista de Talcahuano'),
+        (CADEC, 'Colegio Adventista de Concepción'),
+        (CEALA, 'Centro Educacional Adventista Los Angeles'),
+        (COADVAN, 'Colegio Adventista de Angol'),
+        (COADTE, 'Colegio Adventista de Temuco'),
+        (COADPI, 'Colegio Adventista de Pitrufquén'),
+        (CADVI, 'Colegio Adventista de Villarrica'),
+        (CADVA, 'Colegio Adventista de Valdivia'),
+        (COADPA, 'Colegio Adventista de Punta Arenas'),
+    )
+    colegioadv = models.CharField(max_length=40, choices=COLEGIOS_ADV_CHOICES, blank=True)
+    """Colegios"""
+    SANVICENTE = 'Colegio San Vicente de Paul'
+    PURISIMA = 'Colegio Purísima Concepción'
+    SANBUENA = 'Colegio San Buenaventura'
+    SANESTEB = 'Colegio San Esteban'
+    CHILLAN = 'Colegio Chillán'
+    CREACION = 'Colegio Creación'
+    BICENTEP = 'Liceo Bicentenario E.P.'
+    SAGRADOCOR = 'Colegio Sagrado Corazón de J.'
+    CESB = 'CESB-Colegio Tecnico Profesional P. Enrique'
+    SYDNEY = 'Colegio Sydney College'
+    DARIOSAL = 'Colegio Tecnológico Darío Salas'
+    DAVINCI = 'Colegio Da Vinci'
+    SANFERNANDO = 'Colegio San Fernando'
+    DINABEC = 'Dinabec College'
+    SANAGUST = 'Colegio San Agustín'
+    POLIVPHURT = 'C. Polivalente Padre A. Hurtado'
+    ALCAZARES = 'Colegio Alcázares de Ñuble'
+    LICNARCISO = 'Liceo Narciso Tondreau'
+    DIEGOPORT = 'Liceo Diego Portales Palazuelos'
+    CIUDADEDUC = 'Colegio Ciudad Educativa'
+    MARTABRUNET = 'Liceo Bicentenario Marta Brunet'
+    COMEWEALTH = 'Comewealth School'
+    FRANCISOASIS = 'Colegio Francisco de Asis'
+    JORGEALESSANDRI = 'Liceo Jorge Alessandri Rodríguez'
+    POLIVCARLOS = 'Liceo Polivalente Carlos Montane C.'
+    POLIVJUVENAL = 'Liceo Polivalente Juvenal Hernández Jaque'
+    COYAM = 'Colegio Coyam'
+    INSUCO = 'INSUCO- Instituto Superior de Comercio Insuco'
+    ARTPRAT = 'Liceo Arturo Prat Chacón'
+    SANTACRUZLARQUI = 'Liceo Santa Cruz de Larqui'
+    A17YUNGAY = 'Liceo A-17 Yungay'
+    POLITJOSEMANUEL = 'Liceo Politécnico José Manuel P.'
+    PUENTENUBLE = 'Liceo Técnico Puente Ñuble'
+    DARIOSALAS = 'Colegio Polivalente Darío Salas'
+    CHILLANA8 = 'Liceo Agrícola de Chillán A-8'
+    PUEBLOSECO = 'Liceo Pueblo Seco'
+    POLITCIGN = 'Liceo Politécnico C. Ignacio C.'
+    SENORACARMEN = 'Colegio Nuestra Señora del Carmen'
+    CLAUDIOARRAU = 'Liceo Claudio Arrau Leon'
+    MABELCONDEMARIN = 'Liceo Técnico Mabel Condemarín'
+    ALTAZOR = 'Colegio Altazor'
+    YIRE = 'Liceo Politécnico Yiré'
+    HISPANRIOVIEJO = 'Colegio Hispanoamericano Río Viejo'
+    INTECH = 'Intech'
+    ARBOLVIDA = 'Colegio El Árbol de la Vida'
+    REPUBITALIA = 'Liceo República de Italia'
+    ARAUCANA = 'Centro de Estudios la Araucana'
+    SENORAMERCED = 'Liceo Nuestra Señora de la Merced'
+    SEBASTIANSCHOOL = 'Sebastian School'
+    ARTUROPACHECO = 'Liceo Arturo Pacheco Altamirano'
+    COLEGIOCONCE = 'Colegio Concepción'
+    COLCHOLGUAN = 'Colegio Cholguán'
+    INSTSANTMARIA = 'Instituto Santa María'
+    SANTTERESALOSANDES = 'Colegio Santa Teresa de los Andes'
+    SEMINALBERTOHURT = 'Colegio Seminario Padre Alberto Hurtado'
+    COLEGIOS_CHOICES = (
+        ('', 'Escoge un colegio...'),
+        (SANVICENTE, 'Colegio San Vicente de Paul'),
+        (PURISIMA, 'Colegio Purísima Concepción'),
+        (SANBUENA, 'Colegio San Buenaventura'),
+        (SANESTEB, 'Colegio San Esteban'),
+        (CHILLAN, 'Colegio Chillán'),
+        (CREACION, 'Colegio Creación'),
+        (BICENTEP, 'Liceo Bicentenario E.P.'),
+        (SAGRADOCOR, 'Colegio Sagrado Corazón de J.'),
+        (CESB, 'CESB-Colegio Tecnico Profesional P. Enrique'),
+        (SYDNEY, 'Colegio Sydney College'),
+        (DARIOSAL, 'Colegio Tecnológico Darío Salas'),
+        (DAVINCI, 'Colegio Da Vinci'),
+        (SANFERNANDO, 'Colegio San Fernando'),
+        (DINABEC, 'Dinabec College'),
+        (SANAGUST, 'Colegio San Agustín'),
+        (POLIVPHURT, 'C. Polivalente Padre A. Hurtado'),
+        (ALCAZARES, 'Colegio Alcázares de Ñuble'),
+        (LICNARCISO, 'Liceo Narciso Tondreau'),
+        (DIEGOPORT, 'Liceo Diego Portales Palazuelos'),
+        (CIUDADEDUC, 'Colegio Ciudad Educativa'),
+        (MARTABRUNET, 'Liceo Bicentenario Marta Brunet'),
+        (COMEWEALTH, 'Comewealth School'),
+        (FRANCISOASIS, 'Colegio Francisco de Asis'),
+        (JORGEALESSANDRI, 'Liceo Jorge Alessandri Rodríguez'),
+        (POLIVCARLOS, 'Liceo Polivalente Carlos Montane C.'),
+        (POLIVJUVENAL, 'Liceo Polivalente Juvenal Hernández Jaque'),
+        (COYAM, 'Colegio Coyam'),
+        (INSUCO, 'INSUCO- Instituto Superior de Comercio Insuco'),
+        (ARTPRAT, 'Liceo Arturo Prat Chacón'),
+        (SANTACRUZLARQUI, 'Liceo Santa Cruz de Larqui'),
+        (A17YUNGAY, 'Liceo A-17 Yungay'),
+        (POLITJOSEMANUEL, 'Liceo Politécnico José Manuel P.'),
+        (PUENTENUBLE, 'Liceo Técnico Puente Ñuble'),
+        (DARIOSALAS, 'Colegio Polivalente Darío Salas'),
+        (CHILLANA8, 'Liceo Agrícola de Chillán A-8'),
+        (PUEBLOSECO, 'Liceo Pueblo Seco'),
+        (POLITCIGN, 'Liceo Politécnico C. Ignacio C.'),
+        (SENORACARMEN, 'Colegio Nuestra Señora del Carmen'),
+        (CLAUDIOARRAU, 'Liceo Claudio Arrau Leon'),
+        (MABELCONDEMARIN, 'Liceo Técnico Mabel Condemarín'),
+        (ALTAZOR, 'Colegio Altazor'),
+        (YIRE, 'Liceo Politécnico Yiré'),
+        (HISPANRIOVIEJO, 'Colegio Hispanoamericano Río Viejo'),
+        (INTECH, 'Intech'),
+        (ARBOLVIDA, 'Colegio El Árbol de la Vida'),
+        (REPUBITALIA, 'Liceo República de Italia'),
+        (ARAUCANA, 'Centro de Estudios la Araucana'),
+        (SENORAMERCED, 'Liceo Nuestra Señora de la Merced'),
+        (SEBASTIANSCHOOL, 'Sebastian School'),
+        (ARTUROPACHECO, 'Liceo Arturo Pacheco Altamirano'),
+        (COLEGIOCONCE, 'Colegio Concepción'),
+        (COLCHOLGUAN, 'Colegio Cholguán'),
+        (INSTSANTMARIA, 'Instituto Santa María'),
+        (SANTTERESALOSANDES, 'Colegio Santa Teresa de los Andes'),
+        (SEMINALBERTOHURT, 'Colegio Seminario Padre Alberto Hurtado'),
+    )
+    colegio = models.CharField(max_length=40, choices=COLEGIOS_CHOICES, blank=True)
+    """Carreras"""
     AGRONOMIA = 'AGRO'
     CONTADOR_AUDITOR = 'CON_AUD'
     ED_PARVULARIA = 'ED_PARV'
@@ -87,6 +267,7 @@ class Formulario(models.Model):
     TNS_ENFERMERIA = 'TNS_ENF'
     TRABAJO_SOCIAL = 'TRAB_SOC'
     CARRERAPOST_CHOICES = (
+        ('', 'Escoge una carrera...'),
         (AGRONOMIA, 'Agronomía'),
         (CONTADOR_AUDITOR, 'Contador Auditor'),
         (ED_PARVULARIA, 'Educación Parvularia'),

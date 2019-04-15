@@ -2,56 +2,64 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-    <br>
     <div class="ingresa">
         <h3>Ingresa tus datos</h3>
     </div>
     <form method="POST" class="post-form">
     {% csrf_token %}
-    <div class="form-group">
-        <div class="col-xs-1 col-sm-12 col-md-10 col-lg-10">
+        <div class="col-xs-1 col-sm-10 col-md-8 col-lg-10 col-lg-offset-8">
             {{ form.rut|as_crispy_field }}
         </div>
-        <div class="col-xs-1 col-sm-12 col-md-10 col-lg-10">
+        <div class="col-xs-1 col-sm-10 col-md-8 col-lg-10">
             {{ form.nombres|as_crispy_field }}
         </div>
-        <div class="col-xs-1 col-sm-12 col-md-10 col-lg-10">
+        <div class="col-xs-1 col-sm-10 col-md-8 col-lg-10">
             {{ form.apellidos|as_crispy_field }}
         </div>
-        <div class="col-xs-1 col-sm-12 col-md-10">
+        <div class="col-xs-1 col-sm-10 col-md-7">
             {{ form.nrofono|as_crispy_field }}
         </div>
-        <div class="col-xs-1 col-sm-12 col-md-10 col-lg-10">
+        <div class="col-xs-1 col-sm-10 col-md-8 col-lg-10">
             {{ form.email|as_crispy_field }}
         </div>
-        <div class="col-xs-1 col-sm-12 col-md-10 col-lg-10">
+        <div class="col-xs-1 col-sm-10 col-md-8 col-lg-10">
             {{ form.ciudad|as_crispy_field }}
         </div>
-        <div class="col-xs-1 col-sm-12 col-md-10 col-lg-10">
+    <h4>¿Perteneces a un Colegio Adventista?</h4>
+    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+        <label class="btn btn-info">
+            <button type="button" class="btn btn-info" id="adv" onclick="mostraradv()">Sí</button>
+        </label>
+        <label class="btn btn-info">
+            <button type="button" class="btn btn-info" id="noadv" onclick="mostrarcol()">No</button>
+        </label>
+    </div>
+        <div id="colegio_advdiv_id" class="col-xs-1 col-sm-10 col-md-8 col-lg-10" style="display: none">
+            {{ form.colegioadv|as_crispy_field }}
+        </div>
+        <div id="colegio_id" class="col-xs-1 col-sm-10 col-md-8 col-lg-10" style="display: none">
             {{ form.colegio|as_crispy_field }}
         </div>
-        <div id="aniopostulante" class="col-xs-1 col-sm-12 col-md-10 col-lg-10">
+        <div id="aniopostulante" class="col-xs-1 col-sm-10 col-md-8 col-lg-10">
             {{ form.aniopost|as_crispy_field }}
         </div>
         <!-- Comienza escondido el div que contiene al año de egreso -->
-        <div id="anioegresopostdiv_id" class="col-xs-1 col-sm-12 col-md-10 col-lg-10" style="display: none;">
+        <div id="anioegresopostdiv_id" class="col-xs-1 col-sm-10 col-md-8 col-lg-10" style="display: none;">
             {{ form.anioegreso|as_crispy_field }}
         </div>
         <h4>Carreras de Interés</h4>
-        <div class="col-xs-1 col-sm-12 col-md-10 col-lg-10">
+        <div class="col-xs-1 col-sm-10 col-md-8 col-lg-10">
             {{ form.carrera_post_1|as_crispy_field }}
         </div>
-        <div class="col-xs-1 col-sm-12 col-md-10 col-lg-10">
+        <div class="col-xs-1 col-sm-10 col-md-8 col-lg-10">
             {{ form.carrera_post_2|as_crispy_field }}
         </div>
-        <button type="submit" class="save btn btn-default">Enviar</button>
-    </div>
-    <br>
+        <button type="submit" class="save btn btn-info btn-lg">Enviar</button>
     </form>
 {% endblock %}
 
 {% block scripts %}
-<script type="text/javascript">
+<script>
 
     const ID_SELECTOR_ANIOPOST = "#id_aniopost";
     const ID_DIV_ANIOEGRESO = "#anioegresopostdiv_id";
@@ -67,12 +75,21 @@
         // Escuchando evento change en selector de aniopost
         $(document).on("change", ID_SELECTOR_ANIOPOST, function (evt) {
             let optionValue = $(this).val();
-            if(optionValue === OPTION_VALUE_COMPARE){
+            if (optionValue === OPTION_VALUE_COMPARE) {
                 $(ID_DIV_ANIOEGRESO).show();
-            }else{
+            } else {
                 $(ID_DIV_ANIOEGRESO).hide();
             }
         });
     });
+
+    function mostraradv(){
+        document.getElementById("colegio_advdiv_id").style.display = "block";
+        document.getElementById("colegio_id").style.display = "none";
+    }
+    function mostrarcol(){
+        document.getElementById("colegio_id").style.display = "block";
+        document.getElementById("colegio_advdiv_id").style.display = "none";
+    }
 </script>
 {% endblock %}
