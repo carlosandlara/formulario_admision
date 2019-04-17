@@ -25,7 +25,9 @@ SECRET_KEY = 'axz*7srf%)jw*-yvs!60++(i=dvrdocfa+w9375q)ip8sy_2x&'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'carloslara.pythonanywhere.com']
+
+"""ALLOWED_HOSTS = ['*']"""
 
 
 # Application definition
@@ -123,4 +125,4 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
-PHONENUMBER_DEFAULT_REGION = 'ES'
+PHONENUMBER_DEFAULT_REGION = 'CL'

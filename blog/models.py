@@ -19,27 +19,88 @@ class Post(models.Model):
 
 
 class Formulario(models.Model):
-    rut = models.CharField(max_length=10, help_text="Tu RUT sin puntos y con guión")
+    rut = models.CharField(max_length=9, help_text="Tu RUT sin puntos ni guion")
     nombres = models.CharField(max_length=50)
     apellidos = models.CharField(max_length=50)
-    nrofono = PhoneNumberField(help_text="Los 8 dígitos luego del +56", default='9')
+    nrofono = PhoneNumberField(help_text="Los 8 dígitos luego del +569", default='9')
     email = models.EmailField()
 
     """Ciudades"""
-    ARI = 'Arica'
-    IQQ = 'Iquique'
-    CHILL = 'Chillan'
-    SANT = 'Santiago'
-    CONCE = 'Concepcion'
-    OTRA = 'Otra'
+    ARICA = 'ARICA'
+    IQUIQUE = 'IQUIQUE'
+    CALAMA = 'CALAMA'
+    ANTOFAGASTA = 'ANTOFAGASTA'
+    COPIAPO = 'COPIAPO'
+    LASERENA = 'LASERENA'
+    QUILPUE = 'QUILPUE'
+    SANTIAGO = 'SANTIAGO'
+    MOLINA = 'MOLINA'
+    TALCA = 'TALCA'
+    CHILLAN = 'CHILLAN'
+    LOTA = 'LOTA'
+    TALCAHUANO = 'TALCAHUANO'
+    CONCEPCION = 'CONCEPCION'
+    LOSANGELES = 'LOSANGELES'
+    ANGOL = 'ANGOL'
+    TEMUCO = 'TEMUCO'
+    PITRUFQUEN = 'PITRUFQUEN'
+    VILLARRICA = 'VILLARRICA'
+    VALDIVIA = 'VALDIVIA'
+    PUNTAARENAS = 'PUNTAARENAS'
+    LINARES = 'LINARES'
+    PARRAL = 'PARRAL'
+    NINHUE = 'NINHUE'
+    QUIRIHUE = 'QUIRIHUE'
+    CHILLANVIEJO = 'CHILLANVIEJO'
+    BULNES = 'BULNES'
+    SANCARLOS = 'SANCARLOS'
+    SANIGNACIO = 'SANIGNACIO'
+    ELCARMEN = 'ELCARMEN'
+    SANNICOLAS = 'SANNICOLAS'
+    PINTO = 'PINTO'
+    COIHUECO = 'COIHUECO'
+    ÑIQUEN = 'ÑIQUEN'
+    QUILLON = 'QUILLON'
+    YUNGAY = 'YUNGAY'
+
     CIUDAD_CHOICES = (
         ('', 'Escoge una ciudad...'),
-        (ARI, 'Arica'),
-        (IQQ, 'Iquique'),
-        (CHILL, 'Chillán'),
-        (SANT, 'Santiago'),
-        (CONCE, 'Concepción'),
-        (OTRA, 'Otra ciudad'),
+        (ARICA, 'Arica'),
+        (IQUIQUE, 'Iquique'),
+        (CALAMA, 'Calama'),
+        (ANTOFAGASTA, 'Antofagasta'),
+        (COPIAPO, 'Copiapó'),
+        (LASERENA, 'La Serena'),
+        (QUILPUE, 'Quilpué'),
+        (SANTIAGO, 'Santiago'),
+        (MOLINA, 'Molina'),
+        (TALCA, 'Talca'),
+        (CHILLAN, 'Chillán'),
+        (LOTA, 'Lota'),
+        (TALCAHUANO, 'Talcahuano'),
+        (CONCEPCION, 'Concepción'),
+        (LOSANGELES, 'Los Ángeles'),
+        (ANGOL, 'Angol'),
+        (TEMUCO, 'Temuco'),
+        (PITRUFQUEN, 'Pitrufquén'),
+        (VILLARRICA, 'Villarrica'),
+        (VALDIVIA, 'Valdivia'),
+        (PUNTAARENAS, 'Punta Arenas'),
+        (LINARES, 'Linares'),
+        (PARRAL, 'Parral'),
+        (NINHUE, 'Ninhue'),
+        (QUIRIHUE, 'Quirihue'),
+        (CHILLANVIEJO, 'Chillán Viejo'),
+        (BULNES, 'Bulnes'),
+        (SANCARLOS, 'San Carlos'),
+        (SANIGNACIO, 'San Ignacio'),
+        (ELCARMEN, 'El Carmen'),
+        (SANNICOLAS, 'San Nicolás'),
+        (PINTO, 'Pinto'),
+        (COIHUECO, 'Coihueco'),
+        (ÑIQUEN, 'Ñiquén'),
+        (QUILLON, 'Quillón'),
+        (YUNGAY, 'Yungay'),
     )
     ciudad = models.CharField(max_length=20, choices=CIUDAD_CHOICES)
     PRIMERO = 'PRIMERO'

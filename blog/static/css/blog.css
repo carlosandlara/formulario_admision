@@ -11,12 +11,20 @@ body{
 h1, h2, h3, h4 {
     font-family: 'Raleway';
 }
+/* celular */
 @media only screen and (max-width: 500px) {
     .save {
         margin-top: 5%;
         margin-bottom: 8%;
-        margin-left: 39%;
+        margin-left: 36%;
     }
+    img{
+        width: 150px;
+        height: 60px;
+        margin-top: 5%;
+        margin-left: 29%;
+    }
+
     .container {
         margin-top: 4%;
         border-radius: 40px;
@@ -25,24 +33,43 @@ h1, h2, h3, h4 {
         margin-bottom: 10%;
         width: 96%;
     }
-    .row{
+
+    .row {
         margin: auto;
     }
+
     .btn-group {
-        position: relative;
-        margin-left: 31%;
+        margin-top: 2%;
+        margin-left: 30%;
     }
+
     h1 a {
         color: #ffffff;
         font-weight: bold;
         font-size: 100%;
         font-family: 'Raleway', sans-serif;
     }
+    a{
+        color: white;
+    }
+    .btn-volver{
+        margin-left: 26%;
+        margin-top: 5%;
+        margin-bottom: 10%;
+    }
+    .post{
+        margin-bottom: 150%;
+    }
     h3 {
         margin-top: 5%;
         margin-bottom: 4%;
         font-size: 150%;
         text-align: center;
+        color: #217c86;
+    }
+    h7 {
+        margin-left: 24%;
+        font-family: 'Raleway', sans-serif ;
         color: #217c86;
     }
     h4 {
@@ -52,24 +79,24 @@ h1, h2, h3, h4 {
         font-size: 120%;
         color: #217c86;
     }
+
     h5 {
         color: #ffffff;
     }
-    /*header*/
-    .col-sm-offset-2 {
-        margin-top: 5%;
-        margin-left: 41% ;
-    }
-    .col-sm-offset-3 {
-        margin-top: 3%;
-        margin-left: 20%;
-    }
 }
-@media only screen and (min-width: 501px) and (max-width: 960px){
+/* celular grande */
+@media only screen and (min-width: 501px) and (max-width: 575px){
     .save {
         margin-top: 5%;
         margin-bottom: 8%;
-        margin-left: 32%;
+        margin-left: 30%;
+    }
+    img{
+        position: relative;
+        width: 220px;
+        height: 90px;
+        margin-top: 8%;
+        margin-left: 30%;
     }
     .container {
         margin-top: 4%;
@@ -80,18 +107,37 @@ h1, h2, h3, h4 {
         width: 99%;
         padding-left: 15%;
     }
+    .container-2{
+        margin: auto;
+    }
     .row{
         margin: auto;
     }
     .btn-group {
         position: relative;
-        margin-left: 25%;
+        margin-left: 24%;
     }
     h1 a {
         color: #ffffff;
         font-weight: bold;
         font-size: 100%;
         font-family: 'Raleway', sans-serif;
+    }
+    a{
+        color: white;
+    }
+    .btn-volver{
+        margin-left: 25%;
+        margin-top: 5%;
+        margin-bottom: 10%;
+    }
+    .post{
+        margin-bottom: 150%;
+    }
+    h7 {
+        margin-left: 23%;
+        font-family: 'Raleway', sans-serif ;
+        color: #217c86;
     }
     h3 {
         margin-top: 5%;
@@ -111,22 +157,92 @@ h1, h2, h3, h4 {
     h5 {
         color: #ffffff;
     }
-    /*header*/
-    .col-sm-offset-2 {
+}
+/* tablet */
+@media only screen and (min-width: 576px) and (max-width: 767px){
+    .save {
         margin-top: 5%;
-        margin-left: 45% ;
+        margin-bottom: 8%;
+        margin-left: 30%;
     }
-    .col-sm-offset-3 {
-        margin-top: 3%;
-        margin-left: 37%;
+    img{
+        position: relative;
+        width: 220px;
+        height: 90px;
+        margin-top: 40%;
+        margin-left: 260%;
+    }
+    .container {
+        margin-top: 4%;
+        border-radius: 40px;
+        background-color: white;
+        padding-top: 1%;
+        margin-bottom: 10%;
+        width: 99%;
+        padding-left: 15%;
+    }
+    .container-2{
+        margin: auto;
+    }
+    .row{
+        margin: auto;
+    }
+    .btn-group {
+        position: relative;
+        margin-left: 24%;
+    }
+    h1 a {
+        color: #ffffff;
+        font-weight: bold;
+        font-size: 100%;
+        font-family: 'Raleway', sans-serif;
+    }
+    a{
+        color: white;
+    }
+    .btn-volver{
+        margin-left: 25%;
+        margin-top: 5%;
+        margin-bottom: 10%;
+    }
+    .post{
+        margin-bottom: 150%;
+    }
+    h7 {
+        margin-left: 23%;
+        font-family: 'Raleway', sans-serif ;
+        color: #217c86;
+    }
+    h3 {
+        margin-top: 5%;
+        margin-bottom: 4%;
+        font-size: 150%;
+        margin-left: 22%;
+        color: #217c86;
+    }
+    h4 {
+        margin-top: 6%;
+        margin-bottom: 4%;
         text-align: center;
+        font-size: 115%;
+        color: #217c86;
+        margin-left: -14%;
+    }
+    h5 {
+        color: #ffffff;
     }
 }
-@media only screen and (min-width: 961px) {
-     .save {
+/* Ordenador */
+@media only screen and (min-width: 768px) {
+    .save {
         margin-top: 5%;
         margin-bottom: 8%;
         margin-left: 34%;
+    }
+    img{
+        width: 300px;
+        height: 120px;
+        margin-top: 5%;
     }
     .container {
         margin-top: 4%;
@@ -136,19 +252,43 @@ h1, h2, h3, h4 {
         margin-bottom: 10%;
         padding-left: 10%;
     }
-    .row{
+    .container-2{
+        margin-top: 5%;
+        margin-left: 40%;
+    }
+
+    .row {
         margin: auto;
     }
+
     .btn-group {
         position: relative;
         margin-left: 30%;
     }
+
     h1 a {
         color: #ffffff;
         font-weight: bold;
         font-size: 100%;
         font-family: 'Raleway', sans-serif;
     }
+    a{
+        color: white;
+    }
+    .btn-volver{
+        margin-left: 25%;
+        margin-top: 8%;
+        margin-bottom: 10%;
+    }
+    .post{
+        margin-bottom: 150%;
+    }
+    h7 {
+        margin-left: 26%;
+        font-family: 'Raleway', sans-serif ;
+        color: #217c86;
+    }
+
     h3 {
         margin-top: 5%;
         margin-bottom: 4%;
@@ -156,6 +296,7 @@ h1, h2, h3, h4 {
         margin-left: 27%;
         color: #217c86;
     }
+
     h4 {
         margin-top: 6%;
         margin-bottom: 4%;
@@ -164,17 +305,9 @@ h1, h2, h3, h4 {
         color: #217c86;
         margin-left: -25%;
     }
+
     h5 {
         color: #ffffff;
-    }
-    /*header*/
-    .col-sm-offset-2 {
-        margin-top: 5%;
-        margin-left: 35%;
-    }
-    .col-sm-offset-3 {
-        margin-top: 5%;
-        margin-left: -26%;
     }
 }
 

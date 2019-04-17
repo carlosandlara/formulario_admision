@@ -45,7 +45,7 @@ class Form(forms.ModelForm):
         }
 
         widgets = {
-            'rut': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'XXXXXXXX-X'}),
+            'rut': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'XXXXXXXXX'}),
             'nombres': forms.TextInput(attrs={'class': 'form-control'}),
             'apellidos': forms.TextInput(attrs={'class': 'form-control'}),
             'nrofono': forms.TextInput(attrs={'placeholder': '9XXXXXXXX'}),
