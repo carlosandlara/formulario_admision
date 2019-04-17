@@ -2,18 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="895acb31-0fb6-4d75-ba8e-35af7c2e7178" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/blog/static/images/logounach2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/templates/blog/validarRUT.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/static/css/blog.css" beforeDir="false" afterPath="$PROJECT_DIR$/blog/static/css/blog.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/templates/blog/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/blog/templates/blog/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/templates/blog/formulario.html" beforeDir="false" afterPath="$PROJECT_DIR$/blog/templates/blog/formulario.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/templates/blog/gracias.html" beforeDir="false" afterPath="$PROJECT_DIR$/blog/templates/blog/gracias.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vivo_unach/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/vivo_unach/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vivo_unach/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/vivo_unach/urls.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -74,8 +63,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/vivo_unach/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="27" column="41" selection-start-line="27" selection-start-column="41" selection-end-line="27" selection-end-column="41" />
+            <state relative-caret-position="221">
+              <caret line="25" column="13" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -326,12 +315,12 @@
       <workItem from="1555427486588" duration="2147000" />
       <workItem from="1555430754041" duration="7416000" />
       <workItem from="1555439956410" duration="1094000" />
-      <workItem from="1555526678135" duration="1987000" />
+      <workItem from="1555526678135" duration="2122000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="138317000" />
+    <option name="totallyTimeSpent" value="138452000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
@@ -538,8 +527,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/vivo_unach/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="27" column="41" selection-start-line="27" selection-start-column="41" selection-end-line="27" selection-end-column="41" />
+        <state relative-caret-position="221">
+          <caret line="25" column="13" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
         </state>
       </provider>
     </entry>
