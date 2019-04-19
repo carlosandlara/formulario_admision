@@ -8,4 +8,5 @@ class FormularioAdmin(admin.ModelAdmin):
     search_fields = ('rut', 'nombres', 'apellidos',)
     ordering = ('nombres', )
 
+
 admin.site.register(Formulario, FormularioAdmin)

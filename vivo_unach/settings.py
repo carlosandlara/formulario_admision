@@ -23,12 +23,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'axz*7srf%)jw*-yvs!60++(i=dvrdocfa+w9375q)ip8sy_2x&'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'carloslara.pythonanywhere.com']
+"""ALLOWED_HOSTS = ['127.0.0.1', 'carloslara.pythonanywhere.com']"""
 
-"""ALLOWED_HOSTS = ['*']"""
-
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
