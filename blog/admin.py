@@ -6,28 +6,23 @@ from import_export.fields import Field
 from import_export.admin import ImportExportActionModelAdmin
 
 
-class FormularioAdmin(admin.ModelAdmin):
-    list_filter = ('ciudad','carrera_post_1', 'colegio', 'colegioadv', )
-    list_display = ('rut', 'nombres', 'apellidos', 'nrofono', 'email', 'ciudad', 'colegio', 'colegioadv', 'carrera_post_1', 'carrera_post_2', )
-    search_fields = ('rut', 'nombres', 'apellidos',)
-    ordering = ('nombres', )
-
-
 class FormularioResource(resources.ModelResource):
-    full_title = Field()
-
     class Meta:
         model = Formulario
-        import_id_fields = ('rut',)
-        fields = ('rut', 'nombres', 'apellidos', 'nrofono', 'email', 'ciudad', 'colegio', 'colegioadv', 'carrera_post_1', 'carrera_post_2',)
+        fields = ('rut', 'nombres', 'apellidos', 'nrofono', 'email', 'ciudad', 'colegio', 'colegioadv', 'carrera_post_1', 'carrera_post_2', )
 
 
-class FormularioAdmin(ImportExportModelAdmin):
+class FormularioAdmin(ImportExportModelAdmin, admin.ModelAdmin):
     resource_class = FormularioResource
+    list_filter = ('ciudad', 'carrera_post_1', 'colegio', 'colegioadv',)
+    list_display = ('rut', 'nombres', 'apellidos', 'nrofono', 'email', 'ciudad', 'colegio', 'colegioadv', 'carrera_post_1', 'carrera_post_2',)
+    search_fields = ('rut', 'nombres', 'apellidos',)
+    ordering = ('nombres',)
 
 
-class FormularioAdmin(ImportExportActionModelAdmin):
+
+"""class FormularioAdmin(ImportExportActionModelAdmin):
     pass
-
+    """
 
 admin.site.register(Formulario, FormularioAdmin)
